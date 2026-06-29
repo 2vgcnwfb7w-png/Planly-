@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planly</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <p class="small">Heute</p>
+        <h1>Planly</h1>
+      </div>
+      <button id="themeBtn">☾</button>
+    </header>
+
+    <section class="card hero">
+      <div>
+        <p class="small">Tagesfokus</p>
+        <h2 id="focusText">Was ist heute wichtig?</h2>
+      </div>
+      <div class="circle"><span id="progressLabel">0%</span></div>
+    </section>
+
+    <section class="card">
+      <h3>Smart Assistant</h3>
+      <div class="row">
+        <input id="quickInput" placeholder="z. B. Montag 18.10. 16:00 Geschichte Klausur">
+        <button id="quickAddBtn">Eintragen</button>
+      </div>
+      <p class="hint">Erkennt einfache Aufgaben, Klausuren, Fächer, Datum und Priorität.</p>
+    </section>
+
+    <nav>
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="tasks">To-dos</button>
+      <button class="tab" data-tab="planner">Plan</button>
+      <button class="tab" data-tab="school">Schule</button>
+    </nav>
+
+    <main>
+      <section id="dashboard" class="view active">
+        <div class="grid">
+          <div class="card"><h3>Heute</h3><ul id="todayList"></ul></div>
+          <div class="card"><h3>Diese Woche</h3><ul id="weekList"></ul></div>
+        </div>
+      </section>
+
+      <section id="tasks" class="view">
+        <div class="card">
+          <h3>Neue Aufgabe</h3>
+          <div class="form">
+            <input id="taskTitle" placeholder="Aufgabe">
+            <select id="taskCategory"><option>Schule</option><option>Arbeit</option><option>Privat</option><option>Projekte</option><option>Langfristig</option></select>
+            <select id="taskPriority"><option>niedrig</option><option>mittel</option><option>hoch</option><option>dringend</option></select>
+            <input id="taskDate" type="date">
+            <button id="addTaskBtn">Hinzufügen</button>
+          </div>
+        </div>
+        <div class="card"><h3>Alle To-dos</h3><ul id="taskList"></ul></div>
+      </section>
+
+      <section id="planner" class="view">
+        <div class="card"><h3>Tagesplan</h3><div id="dayPlan"></div></div>
+        <div class="card"><h3>Wochenplan</h3><div id="weekPlan" class="week"></div></div>
+      </section>
+
+      <section id="school" class="view">
+        <div class="grid">
+          <div class="card">
+            <h3>Klausurplaner</h3>
+            <div class="form">
+              <input id="examSubject" placeholder="Fach">
+              <input id="examTopic" placeholder="Thema">
+              <input id="examDate" type="date">
+              <select id="examPriority"><option>mittel</option><option>hoch</option><option>dringend</option></select>
+              <button id="addExamBtn">Klausur eintragen</button>
+            </div>
+            <ul id="examList"></ul>
+          </div>
+          <div class="card">
+            <h3>Noten-Tracker</h3>
+            <div class="form">
+              <input id="gradeSubject" placeholder="Fach">
+              <input id="gradePoints" type="number" min="0" max="15" placeholder="Punkte 0-15">
+              <input id="gradeWeight" type="number" min="1" max="100" placeholder="Gewichtung %">
+              <button id="addGradeBtn">Note speichern</button>
+            </div>
+            <div id="gradeSummary"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+<script src="app.js"></script>
+</body>
+</html>
